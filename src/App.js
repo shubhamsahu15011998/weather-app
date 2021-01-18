@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import Forecast from "./components/Forecast/Forecast"
+import Logo from './components/Logo';
+import Forecast from "./components/Forecast/Forecast";
 
 function App() {
     return ( <
@@ -9,9 +10,9 @@ function App() {
         <
         header className = "App-header" >
         <
-        h1 > React Weather App < /h1>
-
+        Logo / >
         <
+        h1 > React Weather App < /h1> <
         /header> <
         main >
         <
