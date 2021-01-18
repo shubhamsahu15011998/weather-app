@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Forecast from "./components/Forecast/Forecast"
 
 function App() {
     return ( <
@@ -7,8 +9,22 @@ function App() {
         <
         header className = "App-header" >
         <
-        h1 > React Weather App < /h1> <
+        h1 > React Weather App < /h1>
+
+        <
         /header> <
+        main >
+        <
+        Forecast / >
+        <
+        /main>
+
+        <
+        footer >
+        Page created by Shubham <
+        /footer>
+
+        <
         /div>
     );
 }
