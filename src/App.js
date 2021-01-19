@@ -10,9 +10,16 @@ function App() {
         <
         header className = "App-header" >
         <
-        Logo / >
-        <
         h1 > React Weather App < /h1> <
+        div class = "header-img" >
+        <
+        img src = "https://www.noaa.gov/sites/default/files/styles/crop_394x394/public/thumbnails/image/FocusArea__Weather-02.jpg"
+        alt = "Weather"
+        width = "200px"
+        height = "200px" >
+        <
+        /img> <
+        /div> <
         /header> <
         main >
         <

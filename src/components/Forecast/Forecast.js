@@ -1,5 +1,6 @@
 import classes from './Forecast.module.css';
 import Conditions from "../Conditions/Conditions";
+import Errors from '../Errors/Errors';
 import React, { useState } from 'react';
 
 const Forecast = () => {
@@ -12,15 +13,20 @@ const Forecast = () => {
 
     const uriEncodedCity = encodeURIComponent(city);
 
-    function getForecast(e) {
-        e.preventDefault();
+    function getForecast(event) {
+
+        event.preventDefault();
+
         if (city.length === 0) {
             return setError(true);
         }
+
         setError(false);
+
         setResponseObj({});
 
         setLoading(true);
+
 
         let uriEncodedCity = encodeURIComponent(city);
 
@@ -33,16 +39,8 @@ const Forecast = () => {
             })
             .then(response => response.json())
             .then(responseObj => {
-                if (responseObj.cod !== 200) {
-                    throw new Error()
-                }
                 setResponseObj(responseObj);
                 setLoading(false);
-            })
-            .catch(err => {
-                console.error(err);
-                setLoading(false);
-                console.log(err.message);
             });
     }
 
@@ -58,7 +56,7 @@ const Forecast = () => {
         className = { classes.textInput }
         value = { city }
         onChange = {
-            (e) => setCity(e.target.value) }
+            (event) => setCity(event.target.value) }
         /> <
         label className = { classes.Radio } >
         <
@@ -67,7 +65,7 @@ const Forecast = () => {
         checked = { unit === "imperial" }
         value = "imperial"
         onChange = {
-            (e) => setUnit(e.target.value) }
+            (event) => setUnit(event.target.value) }
         />
         Fahrenheit <
         /label> <
@@ -78,7 +76,7 @@ const Forecast = () => {
         checked = { unit === "metric" }
         value = "metric"
         onChange = {
-            (e) => setUnit(e.target.value) }
+            (event) => setUnit(event.target.value) }
         />
         Celcius <
         /label>
@@ -88,11 +86,24 @@ const Forecast = () => {
         type = "submit" >
         Get Forecast <
         /button> <
-        /form> <
-        Conditions responseObj = { responseObj }
-        error = { error } //new
-        loading = { loading } //new
-        /> <
+        /form> {
+            error == true ?
+                <
+                p > Please enter a city name < /p> :
+                (responseObj.cod === 200 ?
+                    <
+                    Conditions responseObj = { responseObj }
+                    error = { error }
+                    loading = { loading }
+                    /> :
+                    <
+                    Errors responseObj = { responseObj }
+                    />   
+                )
+        }
+
+
+        <
         /div>
     )
 }
