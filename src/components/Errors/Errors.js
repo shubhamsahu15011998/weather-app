@@ -3,7 +3,6 @@ import React from 'react';
 
 const Errors = (props) => {
 
-
     return ( <
         div className = { classes.Wrapper } >
         <

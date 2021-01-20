@@ -29,7 +29,7 @@ function App() {
 
         <
         footer >
-        Page created by Shubham <
+        Hand crafted by Shubham <
         /footer>
 
         <

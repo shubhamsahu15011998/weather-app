@@ -93,17 +93,13 @@ const Forecast = () => {
                 (responseObj.cod === 200 ?
                     <
                     Conditions responseObj = { responseObj }
-                    error = { error }
                     loading = { loading }
                     /> :
                     <
                     Errors responseObj = { responseObj }
                     />   
                 )
-        }
-
-
-        <
+        } <
         /div>
     )
 }
